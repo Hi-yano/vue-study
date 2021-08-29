@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- ディレクティブ -->
+    <hr>
+    <p>属性のデータバインディング v-bind</p>
+    <!-- NG -->
+    <!-- <input type="text" value="{{ message }}"/> -->
+    <!-- OK -->
+    <input type="text" v-bind:value="message"/>
+    <hr>
+    <p>条件分岐 v-if(trueで表示)</p>
+    <!-- p要素も消える（DOMレベルで削除される） -->
+    <p v-if="toggle">
+      Hello!
+    </p>
+    <hr>
+    <p>条件分岐 v-show(trueで表示)</p>
+    <!-- p要素は残る（display:none になる） -->
+    <!-- 要素を頻繁に表示・非表示にする場合、v-ifに比べて描画コストを抑えられる -->
+    <p v-show="toggle">
+      Hello!
+    </p>
+    <hr>
+    <p>繰り返し描画 v-for</p>
+    <ol><!-- olタグはリストを番号付きで表示するためのもの -->
+      <li v-for="color in colors">{{ color }}</li>
+    </ol>
+    <p>オブジェクトの繰り返し描画 v-for</p>
+    value の表示
+    <ul>
+      <li v-for="value in user">{{ value }}</li>
+    </ul>
+    <p>- - -</p>
+    key の表示
+    <ul>
+      <li v-for="(value, key) in user">
+        {{ key }} : {{ value }}
+      </li>
+    </ul>
+    <hr>
+    <p>イベントの基本 v-on</p>
+    <button v-on:click="onclick">
+      Click!
+    </button>
+    <p>
+      {{ now }}
+    </p>
+    <hr>
+    <p>双方向データバインディング v-model</p>
+    <!--  dateオブジェクトの値の変更　→　テンプレートの値の変更　に加えて、
+          dateオブジェクトの値の変更　←　テンプレートの値の変更           -->
+      <p>
+        <input type="text" v-model="message">
+      </p>
+      <p>
+        <input type="text" v-model="message">
+      </p>
+      <pre>{{ $data }}</pre>
+    <hr>
+    <p>コンポーネント</p>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+  </script>
+  <script src="index.js"></script>
+</body>
+</html>

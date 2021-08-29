@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演習問題</title>
+</head>
+<body>
+  <div id="app">
+    <p>
+      {{ message }}
+    </p>
+    <p v-if="toggle">
+      <a v-bind:href="url">Vue.js</a>   <!-- ここは出来なかった。。。 -->
+    </p>
+    <p>
+      <ul>
+        <li v-for="language in languages">
+          {{ language }}
+        </li>
+      </ul>
+    </p>
+    <button v-on:click="clickHandler">
+      Click!
+    </button>
+    <p>
+      <input type="text" v-model="message">
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
