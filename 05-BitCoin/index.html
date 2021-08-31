@@ -17,11 +17,16 @@
     Error.
   </section>
   <section v-else>
-    <ul V-cloak>
-      <li v-for="(rate, currency) in bpi">
-        {{ currency }} : {{ rate.rate_float | currencyDecimal }}
-      </li>
-    </ul>
+    <div v-if="loading">
+      Loading...
+    </div>
+    <div v-else>
+      <ul V-cloak>
+        <li v-for="(rate, currency) in bpi">
+          {{ currency }} : {{ rate.rate_float | currencyDecimal }}
+        </li>
+      </ul>
+    </div>
   </section>
   </div>
 
