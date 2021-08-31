@@ -13,5 +13,10 @@ var app = new Vue({
     .catch(function(error){
       console.log(error)    // 通信エラーの補足
     })
+  },
+  filters: {
+    currencyDecimal(value) {
+      return value.toFixed(2)   // toFixedメソッド 数を固定少数点表記を用いてフォーマットする。
+    }
   }
 })
