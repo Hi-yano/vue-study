@@ -11,7 +11,7 @@ var app = new Vue({
       this.bpi = response.data.bpi
     }.bind(this))
     .catch(function(error){
-      console.log(error)
+      console.log(error)    // 通信エラーの補足
     })
   }
 })
