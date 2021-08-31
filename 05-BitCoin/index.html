@@ -12,7 +12,7 @@
   <h2>
     Bitcoin Price
   </h2>
-  <ul>
+  <ul V-cloak>
     <li v-for="(rate, currency) in bpi">
       {{ currency }} : {{ rate.rate_float | currencyDecimal }}
     </li>
