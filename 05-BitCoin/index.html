@@ -8,18 +8,25 @@
   <title>BitCoin価格表示</title>
 </head>
 <body>
+
   <div id='app'>
   <h2>
     Bitcoin Price
   </h2>
-  <ul V-cloak>
-    <li v-for="(rate, currency) in bpi">
-      {{ currency }} : {{ rate.rate_float | currencyDecimal }}
-    </li>
-  </ul>
+  <section v-if="hasError">
+    Error.
+  </section>
+  <section v-else>
+    <ul V-cloak>
+      <li v-for="(rate, currency) in bpi">
+        {{ currency }} : {{ rate.rate_float | currencyDecimal }}
+      </li>
+    </ul>
+  </section>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
   <script src="main.js"></script>
-  </div>
 </body>
 </html>
