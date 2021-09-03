@@ -11,15 +11,22 @@
 
   <div id='app'>
     <!-- v-once では初回だけテンプレートを評価して
-          それ以降は静的なコンテンツとして扱われる。（v-onceがなかったらクリックのたびに文字が反転する） -->
+          それ以降は静的なコンテンツとして扱われる。（v-onceがなかったらクリックのたびに文字が反転する）
+          描画更新のパフォーマンスを上げたいときに利用される-->
     <p v-once>
       {{ message }}
     </p>
-    
   <button v-on:click="clickHandler">
   Click!
   </button>
 
+  <!-- v-pre 要素とすべての子要素のコンパイルをスキップしたいときに利用される 
+        ・生のMustacheタグを表示したいとき
+        ・XSS対策
+        ・ディレクティブのない大量のノードをスキップすることで、コンパイルのスピードを上げる-->
+  <p v-pre>
+    {{ message }}
+  </p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
