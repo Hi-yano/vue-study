@@ -10,6 +10,15 @@
 <body>
 
   <div id='app'>
+    <!-- v-once では初回だけテンプレートを評価して
+          それ以降は静的なコンテンツとして扱われる。（v-onceがなかったらクリックのたびに文字が反転する） -->
+    <p v-once>
+      {{ message }}
+    </p>
+    
+  <button v-on:click="clickHandler">
+  Click!
+  </button>
 
   </div>
 
