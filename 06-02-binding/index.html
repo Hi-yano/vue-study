@@ -9,6 +9,28 @@
 </head>
 <body>
 <div id='app'>
+  <!-- JavaScript式 Vue.jsではデータバインディング内部で、JavaScript式を利用することができる。-->
+  <p>
+    {{ message }}
+  </p>
+  <p>
+    {{ number + 1 }}
+  </p>
+  <p>
+    {{ message.split('').reverse().join('') }}
+  </p>
+  <p>
+    {{ ok ? 'YES' : 'NO' }} <!-- ok: が trueならYES false なら NO が出力-->
+  </p>
+  <p>
+    <!-- 単一式のみが出力される。以下のような記述はエラーとなる。 -->
+    <!-- {{ var x = 1 }} -->
+    <!-- フロー制御は動作しない。 -->
+    <!-- {{ if(ok) { return message } }} -->
+    <!-- 
+          補足：フロー制御は、三項演算子を使用する。 -->
+    {{ ok ? message: '' }} <!-- ok:がtrueならmessageが表示される -->
+  </p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
