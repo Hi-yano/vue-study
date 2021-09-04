@@ -20,9 +20,35 @@
   <p>
     {{ reversedMessage }}
   </p>
+  <!-- メソッドで実装した場合。①()が必要 -->
+  <p>
+    {{ reversedMessageMethod() }}
+  </p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
+
+<!-- 
+  算出プロパティとメソッドの比較
+  ---- 算出プロパティを使わなくても、メソッドを使えば良い？？ ----
+
+  違い①：プロパティとメソッド
+  ・computed ・・・プロパティ「()不要」
+  ・methods  ・・・メソッド「()必要」
+
+  違い②：getter,setter
+  ・computed・・・getter,setter
+  ・methods ・・・getterしか使えない
+
+  違い③：キャッシュ
+  ・computed・・・される
+  プロパティは依存関係に基づきキャッシュされる
+  messageの値が変わらない限りは、以前計算された値を即時に返す
+  ・methods ・・・されない
+  呼び出されるたびに関数の処理を行って処理を返す
+
+  ↑上記の違いは巨大な配列を扱ったりする場合にパフォーマンスに影響がある
+-->
