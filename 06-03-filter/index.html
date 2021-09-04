@@ -13,7 +13,7 @@
   フィルタ（ローカルフィルタ）
 </h1>
 <!-- priceを、次のような千円単位のカンマ区切りでテンプレートに表示したい。29,800 
-      ポイント Vue.jsでは、四季の終わりに任意のフィルタを追加することができる。{{ 式 | フィルタの名前 }} -->
+      ポイント Vue.jsでは、式の終わりに任意のフィルタを追加することができる。{{ 式 | フィルタの名前 }} -->
   <h2>
     Mustache
   </h2>
@@ -24,6 +24,26 @@
     v-bind
   </h2>
   <input type="text" v-bind:value="price | numberFormat" >
+
+  <h2>
+    フィルタ（グローバルフィルタ）
+  </h2>
+  <p>
+    Vueインスタンス定義前に記述する。<br>
+    ※Vueインスタンスの前に書いてある記述のコメントアウトを削除し、<br>
+    ローカルフィルタをコメントアウトして確認する。<br>
+    （テンプレートの書き方は上記と同じ）
+  </p>
+
+  <h2>
+    フィルタの連結
+  </h2>
+  <!-- 日本円　を　USD　に変換する。更に三桁づつのカンマ区切りにする。
+        例) {{ jpyPrice | toUSD | numberFormat }} -->
+  <p>
+    {{ jpyPrice | toUSD | numberFormat}}
+  </p>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
