@@ -1,5 +1,11 @@
 var app = new Vue({
   el: '#app',
-  })
-  
-  Index.h
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  computed: {
+    reversedMessage: function() {
+      return this.message.split('').reverse().join('')
+    }
+  }
+})

@@ -9,7 +9,17 @@
 </head>
 <body>
 <div id='app'>
-
+  <!-- テンプレートの中にこのようなロジックをたくさん詰め込んでしまうとコードが肥大化してしまい、メンテナンス性が悪くなる。
+        以下のmessageの処理を反転する処理を繰り返し使いたい場合何度も記述しなくてはならなくなる 
+        複雑なロジックを使用するときや、ロジックの再利用性を高めたいときは算出プロパティを使用する。 -->
+  <!-- 算出プロパティなし -->
+  <p>
+    {{ message.split('').reverse().join('') }}
+  </p>
+  <!-- 算出プロパティあり 一度定義しておけば使い回すのも簡単 -->
+  <p>
+    {{ reversedMessage }}
+  </p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
