@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="index.css">
+<title>テンプレート構文</title>
+</head>
+<body>
+<div id='app'>
+  <hr>
+  <h2>
+    フィルタ（ローカルフィルタ）
+  </h2>
+  <!-- priceを、次のような千円単位のカンマ区切りでテンプレートに表示したい。29,800 
+      ポイント Vue.jsでは、式の終わりに任意のフィルタを追加することができる。{{ 式 | フィルタの名前 }} -->
+  <h2>
+    Mustache
+  </h2>
+  <p>
+    {{ price | numberFormat}}
+  </p>
+  <h2>
+    v-bind
+  </h2>
+  <input type="text" v-bind:value="price | numberFormat" >
+
+  <hr>
+  <h2>
+    フィルタ（グローバルフィルタ）
+  </h2>
+  <p>
+    Vueインスタンス定義前に記述する。<br>
+    ※Vueインスタンスの前に書いてある記述のコメントアウトを削除し、<br>
+    ローカルフィルタをコメントアウトして確認する。<br>
+    （テンプレートの書き方は上記と同じ）
+  </p>
+
+  <hr>
+  <h2>
+    フィルタの連結
+  </h2>
+  <!-- 日本円　を　USD　に変換する。更に三桁づつのカンマ区切りにする。
+        例) {{ jpyPrice | toUSD | numberFormat }} -->
+  <p>
+    {{ jpyPrice | toUSD | numberFormat}}
+  </p>
+
+  <hr>
+  <h2>
+    フィルタの引数
+  </h2>
+  <!-- 例えば20文字以上の長い文字列を「20文字＋…」へフィルタを使って変換する。 
+        20 とか … の部分は、引数で容易に変更できるようにする。-->
+  <!-- <p>
+    {{ text }}
+  </p> -->
+  <p>
+    {{ text | readMore(20, '...') }}
+  </p>
+  <p>
+    {{ text | readMore(5, '***') }}
+  </p>
+
+  <hr>
+  <h2>
+    v-bind省略記法
+  </h2>
+  <!-- v-bindディレクティブはよく利用するため、省略記法が用意されている
+        例：完全な構文<a v-bind:href="url">Link</a>
+            省略記法<a:href="url">Link</a>-->
+  <a v-bind:href="url" target="_blank">Link1</a>
+  <a :href="url">Link2</a>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

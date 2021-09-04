@@ -40,9 +40,17 @@
     v-cloak
   </h2>
   <p v-cloak>
-    {{ message }}
+    {{ nextMessage }}
   </p>
 
+  <!-- v-text Mustacheの代わりに、ディレクティブを使いたい。
+        ・基本的にはMustache構文に統一するのがおすすめ-->
+  <p>
+    {{ nextMessage }}
+  </p>
+  <p v-text="nextMessage">
+    
+  </p>
 
   <!-- v-pre 要素とすべての子要素のコンパイルをスキップしたいときに利用される 
         ・生のMustacheタグを表示したいとき
