@@ -9,10 +9,21 @@
 </head>
 <body>
 <div id='app'>
-<h2>
-  フィルタ_ローカルフィルタ
-</h2>
-
+<h1>
+  フィルタ（ローカルフィルタ）
+</h1>
+<!-- priceを、次のような千円単位のカンマ区切りでテンプレートに表示したい。29,800 
+      ポイント Vue.jsでは、四季の終わりに任意のフィルタを追加することができる。{{ 式 | フィルタの名前 }} -->
+  <h2>
+    Mustache
+  </h2>
+  <p>
+    {{ price | numberFormat}}
+  </p>
+  <h2>
+    v-bind
+  </h2>
+  <input type="text" v-bind:value="price | numberFormat" >
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
