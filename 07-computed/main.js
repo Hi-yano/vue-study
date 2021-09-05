@@ -15,12 +15,22 @@ var app = new Vue({
       set: function(taxIncludedPrice) {
         this.basePrice = Math.ceil(taxIncludedPrice / 1.08) // Math.ceil 小数点以下の値を切り上げした値を返す関数
       }
+    },
+    // 算出プロパティのキャッシュ
+    computedNumber: function() {
+      console.log('computed!') // キャッシュされるので１度しか呼ばれない
+      return Math.random()
     }
   },
   // メソッドで実装した場合
   methods: {
     reversedMessageMethod: function() {
       return this.message.split('').reverse().join('')
+    },
+    // 算出プロパティのキャッシュ
+    methodsNumber: function() {
+      console.log('methods!') // キャッシュされないので3回呼ばれる
+      return Math.random()
     }
   }
 })

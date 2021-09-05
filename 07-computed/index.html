@@ -34,6 +34,29 @@
   <p>
     tax included price:<input type="text" v-model="taxIncludedPrice">
   </p>
+  <hr>
+  <h1>
+    算出プロパティのキャッシュ
+  </h1>
+  <h2>
+    Computed
+  </h2>
+  <!-- キャッシュありのため以下はすべて同じ値になる -->
+  <ol>
+    <li>{{ computedNumber }}</li>
+    <li>{{ computedNumber }}</li>
+    <li>{{ computedNumber }}</li>
+  </ol>
+  <h2>
+    methods
+  </h2>
+  <!-- キャッシュなしのため以下はすべて違う値になる -->
+  <ol>
+    <li>{{ methodsNumber() }}</li>
+    <li>{{ methodsNumber() }}</li>
+    <li>{{ methodsNumber() }}</li>
+  </ol>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
