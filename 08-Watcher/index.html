@@ -4,12 +4,24 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="index.css">
+<!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
 <title>監視プロパティ</title>
 </head>
 <body>
 <div id='app'>
-  
+  <!-- 監視プロパティとは？
+        特定のデータまたは、算出プロパティの状態を監視して、変化があったときに登録した処理を自動的に実行できるもの
+        事例：検索フォームの値が変わったタイミングで自動的にAjax通信を行って結果を一覧表示-->
+  <!-- 例題：messageプロパティのデータが変更されたらコンソールに旧値と、新値を表示する -->
+  <p>
+    {{ message }}
+  </p>
+  <p>
+    <input type="text" v-model:value="message">
+  </p>
+  <pre>
+    {{ $data }}
+  </pre>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
