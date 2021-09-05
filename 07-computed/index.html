@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="index.css">
+<title>算出プロパティ</title>
+</head>
+<body>
+<div id='app'>
+  <!-- テンプレートの中にこのようなロジックをたくさん詰め込んでしまうとコードが肥大化してしまい、メンテナンス性が悪くなる。
+        以下のmessageの処理を反転する処理を繰り返し使いたい場合何度も記述しなくてはならなくなる 
+        複雑なロジックを使用するときや、ロジックの再利用性を高めたいときは算出プロパティを使用する。 -->
+  <!-- 算出プロパティなし -->
+  <p>
+    {{ message.split('').reverse().join('') }}
+  </p>
+  <!-- 算出プロパティあり 一度定義しておけば使い回すのも簡単 -->
+  <p>
+    {{ reversedMessage }}
+  </p>
+  <!-- メソッドで実装した場合。①()が必要 -->
+  <p>
+    {{ reversedMessageMethod() }}
+  </p>
+  <hr>
+  <h2>
+    getter,setter
+  </h2>
+  <p>
+    base price:<input type="text" v-model="basePrice">
+  </p>
+  <p>
+    tax included price:<input type="text" v-model="taxIncludedPrice">
+  </p>
+  <hr>
+  <h1>
+    算出プロパティのキャッシュ
+  </h1>
+  <h2>
+    Computed
+  </h2>
+  <!-- キャッシュありのため以下はすべて同じ値になる -->
+  <ol>
+    <li>{{ computedNumber }}</li>
+    <li>{{ computedNumber }}</li>
+    <li>{{ computedNumber }}</li>
+  </ol>
+  <h2>
+    methods
+  </h2>
+  <!-- キャッシュなしのため以下はすべて違う値になる -->
+  <ol>
+    <li>{{ methodsNumber() }}</li>
+    <li>{{ methodsNumber() }}</li>
+    <li>{{ methodsNumber() }}</li>
+  </ol>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+
+<!-- 
+  算出プロパティとメソッドの比較
+  ---- 算出プロパティを使わなくても、メソッドを使えば良い？？ ----
+
+  違い①：プロパティとメソッド
+  ・computed ・・・プロパティ「()不要」
+  ・methods  ・・・メソッド「()必要」
+
+  違い②：getter,setter
+  ・computed・・・getter,setter
+  ・methods ・・・getterしか使えない
+
+  違い③：キャッシュ
+  ・computed・・・される
+  プロパティは依存関係に基づきキャッシュされる
+  messageの値が変わらない限りは、以前計算された値を即時に返す
+  ・methods ・・・されない
+  呼び出されるたびに関数の処理を行って処理を返す
+
+  ↑上記の違いは巨大な配列を扱ったりする場合にパフォーマンスに影響がある
+-->
