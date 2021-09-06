@@ -36,6 +36,24 @@
   <p>
     <input type="text" v-model:value="mm">mm
   </p>
+
+  <hr>
+  <!-- 算出プロパティ・監視プロパティどちらでも実装できる場合、基本的には「算出プロパティ」の利用を推奨
+    → 理由：シンプルに記述できるため
+  -->
+  <h2>
+    算出プロパティと監視プロパティの比較
+  </h2>
+  <!-- テンプレートはどちらも共通 -->
+  <p>
+    firstName: <input type="text" v-model:value="firstName">
+  </p>
+  <p>
+    lastName: <input type="text" v-model:value="lastName">
+  </p>
+  <p>
+    fullName: {{ fullName }}
+  </p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
