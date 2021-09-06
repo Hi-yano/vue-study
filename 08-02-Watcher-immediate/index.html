@@ -8,8 +8,14 @@
 <title>watch immediate</title>
 </head>
 <body>
+<!-- 初期読み込み時にも関しプロパティを呼び出す -->
+<!-- 08-02-deepのコンソールと比べるとわかりやすい -->
 <div id='app'>
-  
+  <ul>
+    <li v-for="color in colors">
+      {{ color.name }}
+    </li>
+  </ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
