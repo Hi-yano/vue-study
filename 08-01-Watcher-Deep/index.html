@@ -4,15 +4,31 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="index.css">
-<title>監視プロパティ deep</title>
+<!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+<title>監視プロパティwatch deep</title>
 </head>
 <body>
 <div id='app'>
-  
+  <ul>
+    <li v-for="color in colors">
+      {{ color.name }}
+    </li>
+  </ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
+
+<!-- コンソールに「app.colors[1].name = 'White'」と入力しエンターを押すと
+      Greenの値が変更される。
+      同時にconsole.log('Update!')も呼ばれて表示される。
+-->
+
+<!--
+    補足： オブジェクトまたは配列を変更する場合、
+          それらは、同じオブジェクト/配列を参照するため、
+          ハンドラの引数で取得できる古い値は、
+          新しい値と同じになるという仕様であることに注意
+-->
