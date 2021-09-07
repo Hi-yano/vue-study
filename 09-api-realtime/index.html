@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Real time search</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        <input type="text" v-model="keyword">
+      </p>
+      <p>
+        {{ message }}
+      </p>
+      <ul>
+        <li v-for="item in items">
+          <!-- {{ item.title }} -->
+          <a v-bind:href="item.url" target="_blank">{{ item.title }}</a> likes:{{ item.likes_count }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
+<!-- 
+  利用するAPIについて
+  ・Qiita API v2（無料）
+  ・API ドキュメント https://qiita.com/api/v2/docs
+  リクエスト回数制限
+  ・認証していない状態ではIPアドレスごとに1時間に60回まで
+  →実運用ではこの回数では足りない可能性がある点に注意
+  （キャッシュなどの対応の必要あり）詳しくはドキュメント参照
+  利用するソフトウェア等のバージョン
+  ・vue.js 2.5.16
+  ・Qiita API v2
+  ・HTTPクライアント axios 0.18.0
+  ・ユーティリティライブラリ lodash 4.17.10
+-->
